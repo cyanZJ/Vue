@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用 v-cloak能够解决 插值表达式闪烁的问题 -->
+        <p v-cloak>++++++++{{msg}} ----------</p>
+
+        <h4 v-text="msg"> </h4>
+        <!-- v-text 会覆盖元素中原本的内容，但是插值表达式 只会替换自己的这个占位符 -->
+        <!-- v-bind ：是Vue中，提供的用于绑定属性的指令 -->
+        <!-- v-bind中，可以写合法的JS表达式 -->
+        <!-- Vue中提供了 v-on：事件绑定机制 -->
+    </div>
+</body>
+</html>

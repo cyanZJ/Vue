@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="pao">
+        <input @click="run" type="button" value="跑起来">
+        <input @click="stop" type="button" value="停下来">
+        <div v-text="text">{{msg}}</div>
+        <p>{{msg}}</p>
+    </div>
+    <script>
+        let vm = new Vue({
+            el:"#pao",
+            data:{
+                msg:"小女不才，与这位公子萍水相逢，便对公子一见钟情.",
+                text:"怎么办呢",
+                timeId:null
+            },
+            methods:{
+                run(){
+                   this.timeId = setInterval(()=>{
+                        let start = this.msg.substr(0,1);
+                        let end = this.msg.substr(1);
+                        this.msg = end + start;
+                    },200)
+                    // console.log(this.msg);
+                },
+                stop(){
+                    clearInterval(this.timeId);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
