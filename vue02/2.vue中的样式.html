@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2 :style="[style1,style2]">这是一个h1啊</h2>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data: {
+                style1: {color:'red','font-weight':400},
+                style2:{'font-size':'50px'}
+            },
+            methods:{}
+        });
+    </script>
+</body>
+</html>

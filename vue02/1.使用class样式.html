@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用class样式</title>
+    <style>
+         .red {
+             color:red;
+         }
+
+         .thin {
+             font-weight: 400;
+         }
+
+         .big {
+             font-size: 50px;
+         }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+</head>
+<body>
+    <div id="app">
+            <!-- <p :class="['red','big']">怡宝</p> -->
+            <!-- <p :class="['red',flag?'big':'']">农夫山泉</p> -->
+            <!-- <p :class="['red',{'big':flag}]">怡宝</p> -->
+            <h2 :class="{red:true,thin:true,big:false}">铛铛</h2>
+    </div>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data: {
+                flag:true,
+                classObj: {
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

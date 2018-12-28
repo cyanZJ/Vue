@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <label>Id:
+                    <input type="text" v-model="id">
+            </label>
+            
+            <label>
+                    姓名:<input type="text" v-model="name">
+            </label>
+            <label>
+                    年龄:<input type="text" v-model="age">
+            </label>
+        <input type="button" value="添加" @click="add">
+       <p v-for='item in list'>
+           {{item.id}}
+           {{item.name}}
+           {{item.age}}
+       </p>
+
+    </div>
+    <script>
+        let vm = new Vue({
+             el:'#app',
+             data:{
+                 id:'',
+                 name:'',
+                 age:'',
+                 list:[
+                     {id:1,name:'zs',age:18},
+                     {id:2,name:'ls',age:19},
+                     {id:3,name:'ww',age:26},
+                 ]
+             },
+             methods:{
+                 add(){
+                     this.list.unshift({id:this.id,name:this.name,age:this.age});
+                 }
+             }
+        })
+    </script>
+</body>
+</html>

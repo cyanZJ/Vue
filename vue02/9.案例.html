@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
+    <style>
+        .btn-add {
+            width:100%;
+            height: 50px;
+            text-align: left;
+            font-size: 18px;
+
+        }
+        .form-inline {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+        <button type="button" class="btn btn-primary btn-add">添加品牌</button>
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="exampleInputName2">id</label>
+                <input type="text" class="form-control" id="exampleInputName2" v-model="id">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail2">name</label>
+                <input type="text" class="form-control" id="xampleInputName2" v-model="name">
+            </div>
+            <button type="submit" class="btn btn-default btn-primary" @click.prevent="add">添加</button>
+            搜索名称关键字：
+            <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputName2">
+            </div>
+        </form>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>time</th>
+                    <th>delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for='item in list :key="item.id"'>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.time}}</td>
+                    <td> <a href=""> 删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                id:'',
+                name:'',
+                time:new Date(),
+                list:[
+                    {id:1,name:"蒙牛",time:new Date()},
+                    {id:2,name:"伊利",time:new Date()},
+                    {id:3,name:"光明",time:new Date()},
+                ]
+            },
+            methods:{
+                add(){
+                    this.list.push({id:this.id,name:this.name,age:this.age});
+                }
+            }
+        })
+    </script>
+</body>
+</html>
